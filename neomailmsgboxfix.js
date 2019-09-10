@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Fixes the message box that went disappear sometimes when you are trying to send a neomail
 // @author       richardscoot
-// @match        *www.neopets.com/neomessages.phtml?*type=send*
+// @include        *www.neopets.com/neomessages.phtml?*type=send*
 // ==/UserScript==
 
 (function() {
