@@ -1,14 +1,13 @@
 // ==UserScript==
-// @name         Neomail - Add Message Box
-// @namespace    richardscoot@Clraik
-// @version      1.0
-// @description  Fixes the message box that went disappear sometimes when you are trying to send a neomail
-// @author       richardscoot
-// @include        *www.neopets.com/neomessages.phtml?*type=send*
+// @author        richardscoot
+// @description   Fixes the message box that went disappear sometimes when you are trying to send a neomail
+// @include       http://www.neopets.com/neomessages.phtml?*type=send*
+// @name          Neomail - Fix Message box
+// @namespace     richardscoot@Clraik
+// @version       1.0
 // ==/UserScript==
 
 (function() {
-    'use strict';
     var childno = 3;
     if (window.location.href.indexOf("reply_message_id=") > -1) {
         childno = 4;
