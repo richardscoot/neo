@@ -1,0 +1,439 @@
+/* ==UserStyle==
+@name           [cK] Neoboards Beta: Dark Mode - Altadorian Constellations Theme (with Stylus)
+@namespace      https://clraik.com/forum/showthread.php?76891-Neoboards-Beta-Dark-Mode-Altadorian-Constellations-Theme-(with-Stylus)
+@version        1.0.0
+@description    This stylus theme features:
+                - Support of multiple colors of the theme to fit whatever you prefer most (by changing the --base value)
+                - Neopets emoticons are toned down a little as the white background of those image made it a sudden contrast 
+                to the dark theme which may caused the discomfort to your eyes
+                - Normalising the board list font as the new font in Beta is kinda annoying to me (personally)
+                - Giving some transparency to some part of the background (to let you fully indulge the background of the theme)
+@author         richardscoot@clraik
+@var range base "Base Color" [219, 0, 360, 1]
+==/UserStyle== */
+
+@-moz-document url-prefix("http://www.neopets.com/neoboards/") {
+
+:root {
+    --color1: hsl(var(--base), 65%, 60%);
+    --color2: hsl(var(--base), 72%, 95%);
+    --color3: hsl(var(--base), 33%, 80%);
+    --color4: hsl(0, 6%, 50%);;
+    --color5: hsla(var(--base), 33%, 100%, 0.9);
+    --bgcolor1: hsla(0, 0%, 0%, 0.7);
+    --bgcolor2: hsla(0, 0%, 17%, 0.9);
+    --bgcolor3: hsla(0, 0%, 100%, 0.92);
+    --bgcolor4: hsla(0, 0%, 100%, 0.95);
+    --buttoncolor1: hsl(var(--base),82%,70%);
+    --buttoncolor2: hsl(var(--base),82%,90%);
+    --buttoncolor3: hsl(var(--base),82%,20%);
+}
+
+/* Customise */
+#boardList ul .createTopicButton:nth-child(1) {
+    display: none;
+    width: 0;
+    
+}
+
+#boardList ul .boardNavBottom .pageNav {
+    grid-column: 1/4;
+}
+
+/* Board Index */
+
+.container {
+	background:var(--bgcolor1) !important; /* NEED TO ADD classes for standard container width and color. */
+}
+
+
+#boardTopic ul div li div.boardpost {background-color:var(--bgcolor1) !important}
+
+
+#boardIndex, #boardList, #boardTopic, #boardCreateTopic {
+    border: 1px solid var(--color2);
+}
+
+#boardList > ul > li:nth-child {
+    background-color: #f02121;
+}
+
+#boardIndex ul li:nth-child(odd), #boardList ul li:nth-child(odd) {
+    background-color:var(--bgcolor1);
+    color: var(--color2);
+}
+
+#boardIndex ul li span.boardDesc-sub > p > a > strong {color:var(--color1)}
+#boardIndex ul li span.boardDesc-sub > p > a > strong:hover {color:var(--color2); text-decoration:underline}
+
+div.boardTopicTitle > a > span > img {
+    mix-blend-mode: multiply;
+}
+
+div.boardTopicTitle > a > span:hover {
+    text-decoration:underline;
+}
+
+#boardIndex ul li:nth-child(even), #boardList ul li:nth-child(even) {
+    background-color: var(--bgcolor2) !important;
+    color: var(--color2) ;
+}
+
+div.boardtopictitle > a > span {color:var(--color1) !important}
+#boardIndex h3 {
+    background-color:var(--color3);
+    color:#000000;
+}
+
+#boardIndex ul li h4 {
+    color:var(--color1);
+}
+
+
+#boardIndex ul li .topics, #boardIndex ul li .comments, #boardIndex ul li .recent, #boardList ul li .author, #boardList ul li .replies, #boardList ul li .last {
+    color:var(--color2);
+}
+
+#boardIndex ul li .premiumBoardButton a {
+    color:#3b54b4;
+}
+
+/* Board List */
+
+@media screen and (min-width:701px) {
+    #boardList ul .createTopicButton a {
+        background-color:var(--buttoncolor1) !important;
+        background: -webkit-linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	background: -moz-linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	background: linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	border-radius: 15px;
+	-webkit-box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+	-moz-box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+	box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+    }
+}
+
+#boardList .breadcrumbs, #boardTopic .breadcrumbs {
+    color:#cacaca;
+}
+#boardList .breadcrumbs a, #boardTopic .breadcrumbs a {
+        color: var(--color3) !important;
+}
+
+#boardList .breadcrumbs a:hover, #boardTopic .breadcrumbs a:hover {
+        text-decoration:underline !important;
+}
+
+#boardList ul li .boardTopicTitle {
+    color:var(--color1);
+    font-family: 'Helvetica neue', 'Arial Bold', sans-serif;
+}
+
+#boardList ul li .author {
+    color:var(--color1)
+}
+
+#boardList ul li .last a, #boardList ul li .last-mobile a, #boardList ul li .author-mobile a {
+    color:var(--color1);
+}
+
+#boardList ul .boardNavBottom .createTopicButton a, #boardList ul .boardNavTop .createTopicButton a {
+    background-color:var(--color3);
+    color:#fff;
+}
+/* Listing out top and bottom create topic buttons separately because we may want to style them differently soon, if top row gets blue backing color. */
+#boardList ul .pageNav .boardPageButton, #boardTopic .pageNav .boardPageButton {
+    border: 1px solid var(--color2);
+    color:var(--color5);
+    background-color:var(--color1);
+}
+#boardList ul .pageNav .boardPageButton:hover, #boardTopic .pageNav .boardPageButton:hover {
+    border: 1px solid var(--color3);
+    background-color:var(--color3);
+    color:#fff;
+}
+#boardList ul .pageNav .boardPageButton-active, #boardTopic .pageNav .boardPageButton-active {
+    background-color:var(--color3);
+    color:#fff;
+}
+
+#boardList ul .boardNavBottom {
+    border-top: 1px solid var(--color2);
+    padding: 10px;
+    box-sizing: border-box;
+    color:var(--color2);
+}
+
+/* BOARD TOPICS */
+
+
+#boardTopic h1 {
+    color:var(--color2);
+}
+
+#boardTopic ul li {
+    border-bottom: 1px solid #cacaca;
+}
+
+#boardTopic .topicNavTop {
+    background-color: var(--bgcolor1);
+}
+#boardTopic ul li:nth-child(2n+1) .boardPost {
+    background-color: var(--bgcolor3);
+}
+#boardTopic ul li:nth-child(2n) .boardPost {
+    background-color: var(--bgcolor4);
+}
+#boardTopic ul li .boardPostByline {
+    background-color: #1b1818;
+}
+#boardTopic ul li .boardPostByline .postAuthor, #boardTopic ul li .boardPostByline .postPet {
+    background-color:#1b1818
+}
+
+
+
+#boardTopic ul li .boardPostByline h3, #boardTopic ul li .boardPostByline h4 {
+    background-color:#1b1818
+}
+#boardTopic ul li .boardPostByline p {
+    color: var(--color2);
+    background-color:#1b1818
+}
+#boardTopic ul li .boardPostByline a {
+    color: var(--color1);
+    background-color:#1b1818;
+}
+#boardTopic ul li .boardPostByline .authorIcon, #boardTopic ul li .boardPostByline .postAuthorPetIcon {
+    background-color:#1b1818
+}
+
+h3.postauthorname {color:var(--color3);}
+
+div.postauthorinfo {color:var(--color4)}
+div.postauthorinfo > p {color:var(--color4) !important}
+
+div.postpetinfo > h4 > a {color:var(--color3) !important;}
+
+div.postpetinfo > p {color:var(--color4)}
+
+div.boardpostbyline {background-color:#1b1818 !important;}
+
+#boardTopic ul li h6.boardPostDate {
+    color: #9e9e9e;
+}
+#boardTopic ul .topicNavTop {
+    border-bottom: 1px solid #cacaca;
+}
+#boardTopic ul .topicNavTop .topicCreator {
+    color:var(--color3);
+}
+#boardTopic ul .topicNavTop .topicSubPreface-neoboards {
+    color:var(--color2);
+}
+#boardTopic ul .topicNavTop .topicDate {
+    color: var(--color2);
+}
+#boardTopic ul .topicNavBottom {
+    color: var(--color2);
+}
+#boardTopic ul .topicReplyContainer .topicReplyTitle {
+    background-color:var(--color3);
+    color:#000;
+}
+#boardTopic ul li .boardPostMessage {
+    color:var(--color4) !important;
+}
+
+div.boardpostmessage > font {color:var(--color4) !important;}
+div.boardpostmessage > font > a {color:var(--color3) !important;}
+div.boardpostmessage > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > font {color:var(--color4) !important;}
+div.boardpostmessage > div > b > p > font {color:var(--color4) !important;}
+div.boardpostmessage > div {color:var(--color4) !important;}
+div.boardpostmessage > div > b > font {color:var(--color4) !important;}
+div.boardpostmessage > div > p > font {color:var(--color4) !important;}
+div.boardpostmessage > div > p > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > p > b > font {color:var(--color4) !important;}
+div.boardpostmessage > a {color:var(--color3) !important;}
+div.boardpostmessage > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > i > font {color:var(--color4) !important;}
+div.boardpostmessage > b > font {color:var(--color4) !important;}
+div.boardpostmessage > div > p > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > sub > a {color:var(--color3) !important;}
+div.boardpostmessage > div > sub > a:hover {color:var(--color4)!important;}
+div.boardpostmessage > font > sup > a {color:var(--color3)!important;}
+div.boardpostmessage > font > sup > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > p > i > font {color:var(--color4) !important;}
+div.boardpostmessage > div > p > i > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > i > font > a:hover {color:var(--color3) !important;}
+div.boardpostmessage > div > p > font > i > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > font > i > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > sup > a {color:var(--color3) !important;}
+div.boardpostmessage > div > sup > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > b > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > b > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > p > b > i > font > u {color:var(--color4) !important;}
+div.boardpostmessage > div > p > b > i > font > u > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > b > i > font > u > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > p > b > i > font {color:var(--color4) !important;}
+div.boardpostmessage > div > p > b > i > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > b > i > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > p > i > b > font {color:var(--color4) !important;}
+div.boardpostmessage > div > p > i > b > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > i > b > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > sup > font {color:var(--color4) !important;}
+div.boardpostmessage > div > sup > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > sup > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > a {color:var(--color3) !important;}
+div.boardpostmessage > div > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > font > b {color:var(--color4) !important;}
+div.boardpostmessage > font > b > a {color:var(--color3) !important;}
+div.boardpostmessage > font > b > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > b > div > p > i > font {color:var(--color4) !important;}
+div.boardpostmessage > b > div > p > i > font > a {color:var(--color3) !important;}
+div.boardpostmessage > b > div > p > i > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > b > div > font > i {color:var(--color4) !important;}
+div.boardpostmessage > b > div > font > i > a {color:var(--color3) !important;}
+div.boardpostmessage > b > div > font > i > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > p > u > font {color:var(--color4) !important;}
+div.boardpostmessage > div > p > u > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > u > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > sub > font {color:var(--color4) !important;}
+div.boardpostmessage > div > sub > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > sub > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > p > font > sup {color:var(--color4) !important;}
+div.boardpostmessage > div > p > font > sup > a {color:var(--color3) !important;}
+div.boardpostmessage > div > p > font > sup > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > font > i {color:var(--color4) !important;}
+div.boardpostmessage > font > i > a {color:var(--color3) !important;}
+div.boardpostmessage > font > i > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > p {color:var(--color4) !important;}
+div.boardpostmessage > p > a {color:var(--color3) !important;}
+div.boardpostmessage > p > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > font > div > b {color:var(--color4) !important;}
+div.boardpostmessage > font > div > b > a {color:var(--color3) !important;}
+div.boardpostmessage > font > div > b > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > p > font {color:var(--color4) !important;}
+div.boardpostmessage > p > font > a {color:var(--color3) !important;}
+div.boardpostmessage > p > font > a:hover {color:var(--color4) !important;}
+div.boardpostmessage > div > i > b > font {color:var(--color4) !important;}
+div.boardpostmessage > div > i > b > font > a {color:var(--color3) !important;}
+div.boardpostmessage > div > i > b > font > a:hover {color:var(--color4) !important;}
+
+#boardTopic ul li .reportButton-neoboards {
+    border: 1px solid #b33333;
+    color:#b33333;
+    background-color:var(--color5);
+}
+#boardTopic ul li .reportButton-neoboards:hover {
+    background-color:#b33333;
+    color:#fff;
+}
+#boardTopic ul .topicNavTop .replyTopicButton-top {
+   background-color:var(--buttoncolor1) !important;
+        background: -webkit-linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	background: -moz-linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	background: linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	border-radius: 15px;
+	-webkit-box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+	-moz-box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+	box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+}
+
+#boardTopic .replyTopicButton-top:hover {
+    color:#fff !important; }
+
+/* Reply Section of Topic Page */
+.topicReplyIcons, .topicReplyIcons table, .replySmilies-neoboards {
+    width: 80%;
+}
+
+#boardTopic .topicReplyContainer .topicReplyInput textarea, #boardCreateTopic .topicCreateContainer .topicCreateInput textarea {
+    border:2px solid #cacaca;
+}
+#boardTopic .topicReplyContainer .topicReplyRemainder, #boardCreateTopic .topicCreateContainer .topicCreateRemainder {
+    color:#525252;
+}
+#boardTopic .topicReplyContainer .topicReplyRemainder input, #boardCreateTopic .topicCreateContainer .topicCreateRemainder input {
+    color:#000;
+}
+#boardTopic .topicReplyContainer .topicReplyRemainder .topicReplayRemainder-num, #boardCreateTopic .topicCreateContainer .topicCreateRemainder .topicCreateRemainder-num {
+    background-color:#e2e2e2;
+}
+#boardTopic .topicReplyContainer .topicReplySubmit, #boardCreateTopic .topicCreateContainer .topicCreateSubmit {
+
+   background-color:var(--buttoncolor1) !important;
+        background: -webkit-linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	background: -moz-linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	background: linear-gradient(var(--buttoncolor1),var(--buttoncolor3));
+	border-radius: 15px;
+	-webkit-box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+	-moz-box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+	box-shadow: inset 0px 0px 0px 1px var(--buttoncolor1), /* Same as top of gradient */
+		inset 0px -3px 2px 3px var(--buttoncolor3), /* Bottom Shadow */
+		inset 0px 2px 0px 1px var(--buttoncolor2), /* Top Shine */
+		0px 0px 0px 2px rgba(0,0,0,1); /* black outside border */
+}
+
+#boardTopic .topicReplyContainer > table > tbody > tr > td {
+    color:var(--color2);
+}
+
+#boardTopic .topicReplyRemainder {color:var(--color2) !important;}
+
+input.topicReplayRemainder-num {color:#000 !important}
+
+#boardTopic .topicReplyContainer .topicReplySubmit:hover, #boardCreateTopic .topicCreateContainer .topicCreateSubmit:hover {
+        color:#fff;
+}
+
+
+/* Create a new topic page */
+#boardCreateTopic h1 {
+    background-color: var(--color3);
+    color: #000;
+}
+#boardCreateTopic h2.topicCreateTitle {
+    color:var(--color4)
+}
+
+#boardcreateTopic .topicCreateContainer > table > tbody > tr > td {color:var(--color2); }
+
+#boardcreateTopic .topiccreateRemainder {color:var(--color2) !important;}
+
+#boardCreateTopic .topicCreateInputField-wrap {
+    color:var(--color4);
+}
+#boardCreateTopic .topicCreateInputField input, #boardCreateTopic .topicCreateInputField select {
+    border: 1px solid #cacaca;
+}
+}
