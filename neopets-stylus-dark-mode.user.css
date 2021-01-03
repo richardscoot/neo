@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           [cK] Neoboards Beta: Dark Mode - Altadorian Constellations Theme (with Stylus)
 @namespace      https://clraik.com/forum/showthread.php?76891-Neoboards-Beta-Dark-Mode-Altadorian-Constellations-Theme-(with-Stylus)
-@version        1.0.0
+@version        1.0.1
 @description    This stylus theme features:
                 - Support of multiple colors of the theme to fit whatever you prefer most (by changing the --base value)
                 - Neopets emoticons are toned down a little as the white background of those image made it a sudden contrast 
@@ -188,10 +188,10 @@ div.boardtopictitle > a > span {color:var(--color1) !important}
     background-color: var(--bgcolor1);
 }
 #boardTopic ul li:nth-child(2n+1) .boardPost {
-    background-color: var(--bgcolor3);
+    background-color: var(--bgcolor3) !important;
 }
 #boardTopic ul li:nth-child(2n) .boardPost {
-    background-color: var(--bgcolor4);
+    background-color: var(--bgcolor4) !important;
 }
 #boardTopic ul li .boardPostByline {
     background-color: #1b1818;
