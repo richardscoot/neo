@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           [cK] Neoboards Beta: Dark Mode - Altadorian Constellations Theme (with Stylus)
 @namespace      https://clraik.com/forum/showthread.php?76891-Neoboards-Beta-Dark-Mode-Altadorian-Constellations-Theme-(with-Stylus)
-@version        1.0.1
+@version        1.0.2
 @description    This stylus theme features:
                 - Support of multiple colors of the theme to fit whatever you prefer most (by changing the --base value)
                 - Neopets emoticons are toned down a little as the white background of those image made it a sudden contrast 
@@ -9,26 +9,36 @@
                 - Normalising the board list font as the new font in Beta is kinda annoying to me (personally)
                 - Giving some transparency to some part of the background (to let you fully indulge the background of the theme)
 @author         richardscoot@clraik
+@preprocessor stylus
 @var range base "Base Color" [219, 0, 360, 1]
+@var checkbox fontPostColorChange "Force board post font color to change" 0
+@var color fontPostColor "Board Post Font Color" hsl(0, 6%, 50%)
+@var color postbgcolor1 "Post BG Color 1" hsla(0, 0%, 100%, 0.92)
+@var color postbgcolor2 "Post BG Color 2" hsla(0, 0%, 100%, 0.95)
 ==/UserStyle== */
 
 @-moz-document url-prefix("http://www.neopets.com/neoboards/") {
 
 :root {
-    --color1: hsl(var(--base), 65%, 60%);
-    --color2: hsl(var(--base), 72%, 95%);
-    --color3: hsl(var(--base), 33%, 80%);
-    --color4: hsl(0, 6%, 50%);;
-    --color5: hsla(var(--base), 33%, 100%, 0.9);
+    --color1: hsl(base, 65%, 60%);
+    --color2: hsl(base, 72%, 95%);
+    --color3: hsl(base, 33%, 80%);
+    --color4: fontPostColor;
+    --color5: hsla(base, 33%, 100%, 0.9);
+    --color6: hsla(base, 33%, 100%, 0.8);
     --bgcolor1: hsla(0, 0%, 0%, 0.7);
     --bgcolor2: hsla(0, 0%, 17%, 0.9);
-    --bgcolor3: hsla(0, 0%, 100%, 0.92);
-    --bgcolor4: hsla(0, 0%, 100%, 0.95);
-    --buttoncolor1: hsl(var(--base),82%,70%);
-    --buttoncolor2: hsl(var(--base),82%,90%);
-    --buttoncolor3: hsl(var(--base),82%,20%);
+    --bgcolor3: postbgcolor1;
+    --bgcolor4: postbgcolor2;
+    --buttoncolor1: hsl(base,82%,70%);
+    --buttoncolor2: hsl(base,82%,90%);
+    --buttoncolor3: hsl(base,82%,20%);
 }
 
+div.boardTopicTitle a span strong {
+    color: hsl(base, 100%, 90%);
+}
+    
 /* Customise */
 #boardList ul .createTopicButton:nth-child(1) {
     display: none;
@@ -59,7 +69,7 @@
 }
 
 #boardIndex ul li:nth-child(odd), #boardList ul li:nth-child(odd) {
-    background-color:var(--bgcolor1);
+    background-color:var(--bgcolor1) !important;
     color: var(--color2);
 }
 
@@ -219,12 +229,12 @@ div.boardtopictitle > a > span {color:var(--color1) !important}
 
 h3.postauthorname {color:var(--color3);}
 
-div.postauthorinfo {color:var(--color4)}
-div.postauthorinfo > p {color:var(--color4) !important}
+div.postauthorinfo {color:var(--color6)}
+div.postauthorinfo > p {color:var(--color6) !important}
 
 div.postpetinfo > h4 > a {color:var(--color3) !important;}
 
-div.postpetinfo > p {color:var(--color4)}
+div.postpetinfo > p {color:var(--color6)}
 
 div.boardpostbyline {background-color:#1b1818 !important;}
 
@@ -250,89 +260,91 @@ div.boardpostbyline {background-color:#1b1818 !important;}
     background-color:var(--color3);
     color:#000;
 }
-#boardTopic ul li .boardPostMessage {
-    color:var(--color4) !important;
+if fontPostColorChange {
+    #boardTopic ul li .boardPostMessage {
+        color:var(--color4) !important;
+    }
+    div.boardpostmessage > font {color:var(--color4) !important;}
+    div.boardpostmessage > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > b > p > font {color:var(--color4) !important;}
+    div.boardpostmessage > div {color:var(--color4) !important;}
+    div.boardpostmessage > div > b > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > b > font {color:var(--color4) !important;}
+    div.boardpostmessage > a {color:var(--color3) !important;}
+    div.boardpostmessage > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > i > font {color:var(--color4) !important;}
+    div.boardpostmessage > b > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > sub > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > sub > a:hover {color:var(--color4)!important;}
+    div.boardpostmessage > font > sup > a {color:var(--color3)!important;}
+    div.boardpostmessage > font > sup > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > i > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > i > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > i > font > a:hover {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > font > i > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > font > i > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > sup > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > sup > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > b > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > b > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > b > i > font > u {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > b > i > font > u > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > b > i > font > u > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > b > i > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > b > i > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > b > i > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > i > b > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > i > b > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > i > b > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > sup > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > sup > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > sup > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > font > b {color:var(--color4) !important;}
+    div.boardpostmessage > font > b > a {color:var(--color3) !important;}
+    div.boardpostmessage > font > b > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > b > div > p > i > font {color:var(--color4) !important;}
+    div.boardpostmessage > b > div > p > i > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > b > div > p > i > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > b > div > font > i {color:var(--color4) !important;}
+    div.boardpostmessage > b > div > font > i > a {color:var(--color3) !important;}
+    div.boardpostmessage > b > div > font > i > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > u > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > u > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > u > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > sub > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > sub > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > sub > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > font > sup {color:var(--color4) !important;}
+    div.boardpostmessage > div > p > font > sup > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > p > font > sup > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > font > i {color:var(--color4) !important;}
+    div.boardpostmessage > font > i > a {color:var(--color3) !important;}
+    div.boardpostmessage > font > i > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > p {color:var(--color4) !important;}
+    div.boardpostmessage > p > a {color:var(--color3) !important;}
+    div.boardpostmessage > p > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > font > div > b {color:var(--color4) !important;}
+    div.boardpostmessage > font > div > b > a {color:var(--color3) !important;}
+    div.boardpostmessage > font > div > b > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > p > font {color:var(--color4) !important;}
+    div.boardpostmessage > p > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > p > font > a:hover {color:var(--color4) !important;}
+    div.boardpostmessage > div > i > b > font {color:var(--color4) !important;}
+    div.boardpostmessage > div > i > b > font > a {color:var(--color3) !important;}
+    div.boardpostmessage > div > i > b > font > a:hover {color:var(--color4) !important;}
+    
 }
-
-div.boardpostmessage > font {color:var(--color4) !important;}
-div.boardpostmessage > font > a {color:var(--color3) !important;}
-div.boardpostmessage > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > font {color:var(--color4) !important;}
-div.boardpostmessage > div > b > p > font {color:var(--color4) !important;}
-div.boardpostmessage > div {color:var(--color4) !important;}
-div.boardpostmessage > div > b > font {color:var(--color4) !important;}
-div.boardpostmessage > div > p > font {color:var(--color4) !important;}
-div.boardpostmessage > div > p > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > p > b > font {color:var(--color4) !important;}
-div.boardpostmessage > a {color:var(--color3) !important;}
-div.boardpostmessage > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > i > font {color:var(--color4) !important;}
-div.boardpostmessage > b > font {color:var(--color4) !important;}
-div.boardpostmessage > div > p > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > sub > a {color:var(--color3) !important;}
-div.boardpostmessage > div > sub > a:hover {color:var(--color4)!important;}
-div.boardpostmessage > font > sup > a {color:var(--color3)!important;}
-div.boardpostmessage > font > sup > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > p > i > font {color:var(--color4) !important;}
-div.boardpostmessage > div > p > i > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > i > font > a:hover {color:var(--color3) !important;}
-div.boardpostmessage > div > p > font > i > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > font > i > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > sup > a {color:var(--color3) !important;}
-div.boardpostmessage > div > sup > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > b > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > b > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > p > b > i > font > u {color:var(--color4) !important;}
-div.boardpostmessage > div > p > b > i > font > u > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > b > i > font > u > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > p > b > i > font {color:var(--color4) !important;}
-div.boardpostmessage > div > p > b > i > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > b > i > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > p > i > b > font {color:var(--color4) !important;}
-div.boardpostmessage > div > p > i > b > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > i > b > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > sup > font {color:var(--color4) !important;}
-div.boardpostmessage > div > sup > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > sup > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > a {color:var(--color3) !important;}
-div.boardpostmessage > div > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > font > b {color:var(--color4) !important;}
-div.boardpostmessage > font > b > a {color:var(--color3) !important;}
-div.boardpostmessage > font > b > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > b > div > p > i > font {color:var(--color4) !important;}
-div.boardpostmessage > b > div > p > i > font > a {color:var(--color3) !important;}
-div.boardpostmessage > b > div > p > i > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > b > div > font > i {color:var(--color4) !important;}
-div.boardpostmessage > b > div > font > i > a {color:var(--color3) !important;}
-div.boardpostmessage > b > div > font > i > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > p > u > font {color:var(--color4) !important;}
-div.boardpostmessage > div > p > u > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > u > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > sub > font {color:var(--color4) !important;}
-div.boardpostmessage > div > sub > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > sub > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > p > font > sup {color:var(--color4) !important;}
-div.boardpostmessage > div > p > font > sup > a {color:var(--color3) !important;}
-div.boardpostmessage > div > p > font > sup > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > font > i {color:var(--color4) !important;}
-div.boardpostmessage > font > i > a {color:var(--color3) !important;}
-div.boardpostmessage > font > i > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > p {color:var(--color4) !important;}
-div.boardpostmessage > p > a {color:var(--color3) !important;}
-div.boardpostmessage > p > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > font > div > b {color:var(--color4) !important;}
-div.boardpostmessage > font > div > b > a {color:var(--color3) !important;}
-div.boardpostmessage > font > div > b > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > p > font {color:var(--color4) !important;}
-div.boardpostmessage > p > font > a {color:var(--color3) !important;}
-div.boardpostmessage > p > font > a:hover {color:var(--color4) !important;}
-div.boardpostmessage > div > i > b > font {color:var(--color4) !important;}
-div.boardpostmessage > div > i > b > font > a {color:var(--color3) !important;}
-div.boardpostmessage > div > i > b > font > a:hover {color:var(--color4) !important;}
 
 #boardTopic ul li .reportButton-neoboards {
     border: 1px solid #b33333;
