@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         [cK] Neopets - User shortcut Enhancements
 // @author       richardscoot @ clraik.com
-// @updateURL    
-// @downloadURL  
+// @updateURL    https://raw.githubusercontent.com/richardscoot/neo/master/neopets-user-shortcut.user.js
+// @downloadURL  https://raw.githubusercontent.com/richardscoot/neo/master/neopets-user-shortcut.user.js
 // @match        http://www.neopets.com/island/tradingpost.phtml*
 // @include      http://www.neopets.com/neoboards/topic.phtml?topic=*
 // @include      http://www.neopets.com/neomessages.phtml?*type=read*
