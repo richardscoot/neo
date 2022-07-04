@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         [cK] Tier Ranking Display
 // @namespace    https://clraik.com/forum/showthread.php?74135-Tier-Ranking-Display-on-Neoboards&p=1088086#post1088086
-// @version      1.2
+// @version      1.3
 // @description  Show tier on the neoboard
-//               v1.2 - Support Beta version
+//               v1.3 - Support HTTPS site
 // @updateURL    https://raw.githubusercontent.com/richardscoot/neo/master/tierrankingdisplay.user.js
 // @downloadURL  https://raw.githubusercontent.com/richardscoot/neo/master/tierrankingdisplay.user.js
 // @author       richardscoot @ clraik.com
-// @match        http://www.neopets.com/neoboards/boardlist.phtml?board=34*
-// @match        http://www.neopets.com/neoboards/topic.phtml?topic=*
+// @match        www.neopets.com/neoboards/boardlist.phtml?board=34*
+// @match        www.neopets.com/neoboards/topic.phtml?topic=*
 // @require http://code.jquery.com/jquery-3.4.1.min.js
 // @grant       GM.setValue
 // @grant       GM.getValue
