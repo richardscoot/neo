@@ -3,10 +3,10 @@
 // @author       richardscoot @ clraik.com
 // @updateURL    https://raw.githubusercontent.com/richardscoot/neo/master/neopets-user-shortcut.user.js
 // @downloadURL  https://raw.githubusercontent.com/richardscoot/neo/master/neopets-user-shortcut.user.js
-// @match        www.neopets.com/island/tradingpost.phtml*
-// @include      www.neopets.com/neoboards/topic.phtml?topic=*
-// @include      www.neopets.com/neomessages.phtml?*type=read*
-// @version      1.1
+// @match        *://www.neopets.com/island/tradingpost.phtml*
+// @match        *://www.neopets.com/neoboards/topic.phtml?topic=*
+// @match        *://www.neopets.com/neomessages.phtml?*type=read*
+// @version      1.2
 // @description  Adds some useful icons to the neoboards/trading post/neomessages
 // ==/UserScript==
 
